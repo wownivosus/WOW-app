@@ -1,0 +1,22 @@
+<ion-view view-title="Profile">
+    <ion-content class="has-header">
+        <div class="list card">
+            <div class="item">
+                <h2>{{user.name}}</h2>
+                <p>{{user.city}}</p>
+            </div>
+            <div class="item item-body">
+                <img src="http://graph.facebook.com/{{user.id}}/picture?width=270&height=270"/>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<ion-view view-title="Dashboard" hide-back-button="true">
+  <ion-content>
+	   <div class="card" ng-repeat="profilelist in profiles">
+		  <div class="item item-divider">{{profilelist.name}}</div>
+		  <div class="item item-text-wrap">{{profilelist.deseg}}</div>
+	  </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

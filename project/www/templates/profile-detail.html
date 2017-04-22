@@ -1,0 +1,88 @@
+<ion-view view-title="Profile">
+  <ion-content>
+
+<br><br>
+<!-- <div class="list card">
+
+  <div class="item item-avatar">
+    <img src="{{user_data.imageUrl}}">
+    <h2>{{user_data.displayName}}</h2>
+  </div>
+  <ion-view view-title="Profile">
+    <ion-content class="has-header">
+        <div class="list card">
+            <div class="item">
+                <h2>{{user.name}}</h2>
+                <p>{{user.city}}</p>
+                <p>hello</p>
+            </div>
+            <div class="item item-body">
+                <img src="http://graph.facebook.com/{{user.id}}/picture?width=270&height=270"/>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+  <div class="item item-body">
+    <img class="full-image" src="{{profile.face}}">
+    <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of tabs, icons aligned left, within the card-footer.
+    </p>
+    <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#"> <i class="icon ion-thumbsup"></i> Like </a>
+  <a class="tab-item" href="#"> <i class="icon ion-chatbox"></i> Comment</a>
+    <a class="tab-item" href="#"> <i class="icon ion-share"></i>Share</a>
+  </div>
+</div> -->
+            <ion-header-bar class="bar-dark">
+              <h1 class="title">Add</h1>
+            <!-- New Task button-->
+            <button class="button button-icon" ng-click="newTask()">
+               <i class="icon ion-compose"></i>
+            </button>
+            </ion-header-bar>
+              <!-- our list and list items -->
+              <ion-list>
+                <ion-item ng-repeat="task in tasks">
+                  <div>{{task.title}}</div>
+                  <img src="{{task.photo}}">
+                  <button ng-click="deleteTask()">X</button>
+                </ion-item>
+              </ion-list>
+
+              <script id="new-task.html" type="text/ng-template">
+                <div class="modal">
+                  <!-- Modal header bar -->
+                  <ion-header-bar class="bar-secondary">
+                    <h1 class="title">New Task</h1>
+                    <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
+                  </ion-header-bar>
+                  <!-- Modal content area -->
+                  <ion-content>
+                    <form ng-submit="createTask(task)">
+                      <div class="list">
+                        <label class="item item-input">
+                          <input type="text" placeholder="What do you need to add?" ng-model="task.title">
+                        </label>
+                        <label>
+                          <input type="file" ng-model="task.photoURL">
+                        </label>
+                      </div>
+                      <div class="padding">
+                        <button type="submit" class="button button-block button-positive">Create Task</button>
+                      </div>
+                    </form>
+                  </ion-content>
+                </div>
+            </script>
+
+  </ion-content>
+</ion-view>

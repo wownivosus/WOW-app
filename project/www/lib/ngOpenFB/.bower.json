@@ -1,0 +1,34 @@
+{
+  "name": "ngOpenFB",
+  "homepage": "https://github.com/r-wettstaedt/ngOpenFB",
+  "authors": [
+    "Robert Wettstaedt <robert.wett@gmail.com>"
+  ],
+  "description": "ngOpenFB is an Angular module that lets you integrate your Angular or Ionic application with Facebook",
+  "main": "ngOpenFB.js",
+  "keywords": [
+    "ionic",
+    "facebook",
+    "oauth",
+    "cordova",
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "6becfa5e68",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6becfa5e68df2a77fd6d5c32c6a58dcd615aac42"
+  },
+  "_source": "https://github.com/r-wettstaedt/ngOpenFB.git",
+  "_target": "*",
+  "_originalSource": "ngOpenFB",
+  "_direct": true
+}

@@ -1,0 +1,9 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.1.0",
+    "facebookConnectPlugin": "https://github.com/Wizcorp/phonegap-facebook-plugin.git",
+    "googleplus": "https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git"
+  }
+}
