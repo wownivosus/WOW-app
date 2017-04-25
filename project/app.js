@@ -1,20 +1,28 @@
 var express = require('express');
-var path = require('path');
 var bodyParser = require('body-parser');
-var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var path = require('path');
 
 mongoose.connect('mongodb://localhost/ionicapp');
 
-var data = mongoose.model('Todos', {
+var Schema = new mongoose.Schema({
+  _id: String,
   name: String,
-  description: String
+  number: Number
 });
+var data = mongoose.model('Todos', Schema);
 
 var app = express();
 
+// all environments
+app.set('port', process.env.PORT || 3000);
+app.set('views', __dirname + '/www');
+
+app.use(bodyParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
 //get all the todos from the database
-app.get('/api/todos', function(req, res){
+app.get('/app/profiles', function(req, res){
   data.find(function(err, todos){
     if(err)
       res.send(err)
@@ -23,21 +31,21 @@ app.get('/api/todos', function(req, res){
 });
 
 //create a todo
-app.post('/api/todos', function(req,res){
-  data.create({
-    name: req.body.task.title
-  }, function(err, todo){
-      if(err)
-        res.send(err);
-      data.find(function(err, todos){
-        if(err)
-          res.send(err)
-        res.json(todos);
-      });
-  });
+
+app.post('/app/profile/:todoId', function(req, res){
+  console.log(req.body);
+  // new data({
+  //   _id    : req.body.task.email,
+  //   name: req.body.task.name,
+  //   number   : req.body.task.number        
+  // }).save(function(err, doc){
+  //   if(err) res.json(err);
+  //   else    res.send('Successfully inserted!');
+  // });
 });
 
-app.delete('/api/todos/:todo_id', function(req, res){
+
+app.delete('/app/todo_id', function(req, res){
   data.remove({
     _id: req.params.todo_id
   }, function(err, todo){
@@ -52,5 +60,5 @@ app.delete('/api/todos/:todo_id', function(req, res){
 });
 
 module.exports = app;
-app.listen(9000);
-console.log('App is listening on port 9000')
+app.listen(3000);
+console.log('App is listening on port 3 000')

@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('starter', ['ionic', 'starter.controllers' , 'starter.services'])
+var app = angular.module('starter', ['ionic','starter.controllers' , 'starter.services'])
 
 app.run(function($ionicPlatform , $rootScope, $timeout) {
   $ionicPlatform.ready(function() {
@@ -76,16 +76,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 //--------------------------------------
 
 
-  .state('app.dashboard', {
-    url: '/dashboard',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/dashboard.html',
-        controller: 'DashCtrl'
-      }
-     },
-   authStatus: true
-  })
 
 
     .state('app.profiles', {
@@ -106,7 +96,144 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'TodoCtrl'
       }
     }
-  });
+  })
+
+  .state('app.dashboard', {
+    url: '/dashboard',
+    views: {
+      'menuContent' : {
+        templateUrl: 'templates/tabs.html'
+      }
+    }
+  })
+
+    .state('app.dashboard.home', {
+      url: '/home',
+      views: {
+        'home-tab' : {
+          templateUrl: 'templates/home.html'
+        }
+      }
+    })
+
+    .state('app.dashboard.person', {
+      url: '/person',
+      views: {
+        'person-tab' : {
+          templateUrl: 'templates/person.html'
+        }
+      }
+    })
+    
+    .state('app.dashboard.category', {
+      url: '/category',
+      views: {
+        'category-tab' : {
+          templateUrl: 'templates/category.html'
+        }
+      }
+    })
+
+    .state('app.dashboard.pubs', {
+      url: '/pubs',
+      views: {
+        'pubs-tab' : {
+          templateUrl: 'templates/pubs.html',
+          controller: 'PubsController'
+        }
+      }
+    })
+
+    .state('app.dashboard.pubs_detail', {
+      url: '/pubs/:aId',
+      views: {
+        'pubs-tab' : {
+          templateUrl: 'templates/pubs_detail.html',
+          controller: 'PubsController'
+        }
+      }
+    })
+
+    .state('app.dashboard.list', {
+      url: '/list',
+      views: {
+        'list-tab' : {
+          templateUrl: 'templates/list.html',
+          controller: 'ListController'
+        }
+      }
+    })
+
+    .state('app.dashboard.detail', {
+      url: '/list/:aId',
+      views: {
+        'list-tab' : {
+          templateUrl: 'templates/detail.html',
+          controller: 'ListController'
+        }
+      }
+    })
+
+.state('app.dashboard.teh', {
+      url: '/teh',
+      views: {
+        'teh-tab' : {
+          templateUrl: 'templates/teh.html',
+          controller: 'TehController'
+        }
+      }
+    })
+
+    .state('app.dashboard.teh_detail', {
+      url: '/teh/:aId',
+      views: {
+        'tah-tab' : {
+          templateUrl: 'templates/teh_detail.html',
+          controller: 'TehController'
+        }
+      }
+    })
+
+.state('app.dashboard.book', {
+      url: '/book',
+      views: {
+        'book-tab' : {
+          templateUrl: 'templates/book.html',
+          controller: 'BookController'
+        }
+      }
+    })
+
+    .state('app.dashboard.b_detail', {
+      url: '/book/:aId',
+      views: {
+        'book-tab' : {
+          templateUrl: 'templates/b_detail.html',
+          controller: 'BookController'
+        }
+      }
+    })
+
+.state('app.dashboard.fw', {
+      url: '/fw',
+      views: {
+        'fw-tab' : {
+          templateUrl: 'templates/fw.html',
+          controller: 'FwController'
+        }
+      }
+    })
+
+    .state('app.dashboard.fw_detail', {
+      url: '/fw/:aId',
+      views: {
+        'fw-tab' : {
+          templateUrl: 'templates/fw_detail.html',
+          controller: 'FwController'
+        }
+      }
+    })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });

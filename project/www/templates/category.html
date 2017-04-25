@@ -1,0 +1,33 @@
+<ion-view view-title="Категория">
+<div class="bar bar-subheader   item-input-inset bar-light">
+  <label class="item-input-wrapper">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="search" ng-model="query" placeholder="Search">
+  </label>
+</div>
+<ion-content 
+  class="has-subheader">
+  <ion-refresher on-refresh="doRefresh()">
+  </ion-refresher>
+  <ion-list>
+    <ion-item href="#/app/dashboard/pubs">
+      <h2>Одежда</h2>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item href="#/app/dashboard/fw">
+      <h2>Обувь</h2>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item href="#/app/dashboard/teh">
+      <h2>Мебель</h2>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item href="#/app/dashboard/book">
+      <h2>Книги</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>
+</ion-view>

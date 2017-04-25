@@ -53,8 +53,6 @@
               <ion-list>
                 <ion-item ng-repeat="task in tasks">
                   <div>{{task.title}}</div>
-                  <img src="{{task.photo}}">
-                  <button ng-click="deleteTask()">X</button>
                 </ion-item>
               </ion-list>
 
@@ -62,24 +60,21 @@
                 <div class="modal">
                   <!-- Modal header bar -->
                   <ion-header-bar class="bar-secondary">
-                    <h1 class="title">New Task</h1>
+                    <h1 class="title">New company</h1>
                     <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
                   </ion-header-bar>
                   <!-- Modal content area -->
                   <ion-content>
-                    <form ng-submit="createTask(task)">
-                      <div class="list">
-                        <label class="item item-input">
-                          <input type="text" placeholder="What do you need to add?" ng-model="task.title">
-                        </label>
-                        <label>
-                          <input type="file" ng-model="task.photoURL">
-                        </label>
-                      </div>
-                      <div class="padding">
-                        <button type="submit" class="button button-block button-positive">Create Task</button>
-                      </div>
-                    </form>
+                      <form ng-submit="createTask(task)">
+                        <div class="list">
+                          <label class="item item-input">
+                            <input type="text" placeholder="What do you need to do?" ng-model="task.title">
+                          </label>
+                        </div>
+                        <div class="padding">
+                          <button type="submit" class="button button-block button-positive">Add Organization</button>
+                        </div>
+                      </form>
                   </ion-content>
                 </div>
             </script>

@@ -1,4 +1,4 @@
-var app = angular.module('starter.controllers', [])
+var app = angular.module('starter.controllers', []);
 
 app.controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout,  $location, $ionicPopup, $state, $q, $ionicLoading, UserServiceFB, UserServiceGL, $ionicActionSheet){
 
@@ -284,63 +284,154 @@ app.controller('TodoCtrl', function($scope, $ionicModal) {
   $scope.closeNewTask = function() {
     $scope.taskModal.hide();
   };
-});
-/*app.controller('TodoCtrl', function($scope, $http, $ionicModal) {
-    $scope.todos = [];
+})
+//Tabs SIDE
+app.controller('ListController', ['$scope', '$http', '$state',
+    function($scope, $http, $state) {
+    $http.get('js/data.json').success(function(data) {
+      $scope.companies = data.companies;
+      $scope.whichcompany=$state.params.aId;
+      $scope.data = { showDelete: false, showReorder: false };
 
-        // when landing on the page, get all todos and show them
-    $http.get('/api/todos')
-         .success(function(data) {
-             $scope.todos = data;
-          });
-         .error(function(data) {
-              console.log('Error: ' + data);
-          });
+      $scope.onItemDelete = function(item) {
+        $scope.companies.splice($scope.companies.indexOf(item), 1);
+      }
 
-        // when submitting the add form, send the text to the node API
-        $scope.createTask= function() 
-        {
-           $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
-              $scope.taskModal = modal;
-            }, {
-              scope: $scope,
-              animation: 'slide-in-up'
-            });
-                $http.post('/api/todos', $scope.formData)
-                        .success(function(data) {
-                                $scope.todos.push({
-                                  title: task.title
-                                });
-                                $scope.taskModal.hide();
-                                task.title = "";
-                        });
-                        .error(function(data) {
-                                console.log('Error: ' + data);
-                        });
-        };
+      $scope.doRefresh =function() {
+      $http.get('js/data.json').success(function(data) {
+          $scope.companies = data;
+          $scope.$broadcast('scroll.refreshComplete'); 
+        });
+      }
 
-        // delete a todo after checking it
-        $scope.deleteTask = function(id) 
-        {
-                $http.delete('/api/todos/' + id)
-                        .success(function(data) {
-                                $scope.todos = data;
-                        })
-                        .error(function(data) {
-                                console.log('Error: ' + data);
-                        });
-        };
-          // Open our new task modal
-            $scope.newTask = function() {
-              //$scope.taskModal.show();
-            };
+      $scope.toggleStar = function(item) {
+        item.star = !item.star;
+      }
 
-            // Close the new task modal
-            $scope.closeNewTask = function() {
-              $scope.taskModal.hide();
-            };
+      $scope.moveItem = function(item, fromIndex, toIndex) {
+        $scope.companies.splice(fromIndex, 1);
+        $scope.companies.splice(toIndex, 0, item);
+      };
+    });
+}]);
 
-  });*/
+app.controller('BookController', ['$scope', '$http', '$state',
+    function($scope, $http, $state) {
+    $http.get('js/data.json').success(function(data) {
+      $scope.books = data.books;
+      $scope.whichbook=$state.params.aId;
+      $scope.data = { showDelete: false, showReorder: false };
+
+      $scope.onItemDelete = function(item) {
+        $scope.books.splice($scope.books.indexOf(item), 1);
+      }
+
+      $scope.doRefresh =function() {
+      $http.get('js/data.json').success(function(data) {
+          $scope.books = data;
+          $scope.$broadcast('scroll.refreshComplete'); 
+        });
+      }
+
+      $scope.toggleStar = function(item) {
+        item.star = !item.star;
+      }
+
+      $scope.moveItem = function(item, fromIndex, toIndex) {
+        $scope.books.splice(fromIndex, 1);
+        $scope.books.splice(toIndex, 0, item);
+      };
+    });
+app}]);
+
+app.controller('FwController', ['$scope', '$http', '$state',
+    function($scope, $http, $state) {
+    $http.get('js/data.json').success(function(data) {
+      $scope.fws = data.fws;
+      $scope.whichfw=$state.params.aId;
+      $scope.data = { showDelete: false, showReorder: false };
+
+      $scope.onItemDelete = function(item) {
+        $scope.fws.splice($scope.fws.indexOf(item), 1);
+      }
+
+      $scope.doRefresh =function() {
+      $http.get('js/data.json').success(function(data) {
+          $scope.fws = data;
+          $scope.$broadcast('scroll.refreshComplete'); 
+        });
+      }
+
+      $scope.toggleStar = function(item) {
+        item.star = !item.star;
+      }
+
+      $scope.moveItem = function(item, fromIndex, toIndex) {
+        $scope.fws.splice(fromIndex, 1);
+        $scope.fws.splice(toIndex, 0, item);
+      };
+    });
+}]);
+
+app.controller('TehController', ['$scope', '$http', '$state',
+    function($scope, $http, $state) {
+    $http.get('js/data.json').success(function(data) {
+      $scope.tehs = data.tehs;
+      $scope.whichteh=$state.params.aId;
+      $scope.data = { showDelete: false, showReorder: false };
+
+      $scope.onItemDelete = function(item) {
+        $scope.tehs.splice($scope.tehs.indexOf(item), 1);
+      }
+
+      $scope.doRefresh =function() {
+      $http.get('js/data.json').success(function(data) {
+          $scope.tehs = data;
+          $scope.$broadcast('scroll.refreshComplete'); 
+        });
+      }
+
+      $scope.toggleStar = function(item) {
+        item.star = !item.star;
+      }
+
+      $scope.moveItem = function(item, fromIndex, toIndex) {
+        $scope.tehs.splice(fromIndex, 1);
+        $scope.tehs.splice(toIndex, 0, item);
+      };
+    });
+}]);
+
+
+app.controller('PubsController', ['$scope', '$http', '$state',
+    function($scope, $http, $state) {
+    $http.get('js/data.json').success(function(data) {
+      $scope.publics = data.publics;
+      $scope.whichpublic=$state.params.aId;
+      $scope.data = { showDelete: false, showReorder: false };
+
+      $scope.onItemDelete = function(item) {
+        $scope.publics.splice($scope.publics.indexOf(item), 1);
+      }
+
+      $scope.doRefresh =function() {
+      $http.get('js/data.json').success(function(data) {
+          $scope.publics = data;
+          $scope.$broadcast('scroll.refreshComplete'); 
+        });
+      }
+
+      $scope.toggleStar = function(item) {
+        item.star = !item.star;
+      }
+
+      $scope.moveItem = function(item, fromIndex, toIndex) {
+        $scope.publics.splice(fromIndex, 1);
+        $scope.publics.splice(toIndex, 0, item);
+      };
+    });
+}]);
+
 app.controller('ProfilesCtrl', function($scope, Profiles) {
   $scope.profiles = Profiles.all();
 });
